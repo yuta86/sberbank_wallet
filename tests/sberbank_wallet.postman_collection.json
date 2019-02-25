@@ -1,0 +1,563 @@
+{
+	"info": {
+		"_postman_id": "69392ce0-0756-4bea-944d-9b5a9ec98415",
+		"name": "sberbank_wallet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "главная страница",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8080",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8080"
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "главная страница с именем",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8080/Yurii",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8080",
+					"path": [
+						"Yurii"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "информация о пользователе",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8080/user/info/1",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"info",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "регистрация пользователя",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Иван",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "Иванов",
+							"type": "text"
+						},
+						{
+							"key": "fathers_name",
+							"value": "Иванович",
+							"type": "text"
+						},
+						{
+							"key": "birthday",
+							"value": "01.01.2010",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "ivan@mail.ru",
+							"type": "text"
+						},
+						{
+							"key": "phone",
+							"value": "+791234567890",
+							"type": "text"
+						},
+						{
+							"key": "type_account",
+							"value": "Физическое лицо",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8080/user/registration",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"registration"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "удаление пользователя",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "11",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8080/user/delete",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "просмотр логов",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8080/logs/apilogs?start=2019-02-24 11:46:55.143689&end=2019-02-24 11:50:55.143689",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8080",
+					"path": [
+						"logs",
+						"apilogs"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "2019-02-24 11:46:55.143689"
+						},
+						{
+							"key": "end",
+							"value": "2019-02-24 11:50:55.143689"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "просмотр логов error",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8080/logs/errorlogs?start=2019-02-24 11:46:55.143689&end=2019-02-24 11:50:55.143689",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8080",
+					"path": [
+						"logs",
+						"errorlogs"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "2019-02-24 11:46:55.143689"
+						},
+						{
+							"key": "end",
+							"value": "2019-02-24 11:50:55.143689"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "история операций",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8080/report/history?start=2019-02-24 11:05:03.918103&end=2019-02-24 11:09:06.095966&id=1",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8080",
+					"path": [
+						"report",
+						"history"
+					],
+					"query": [
+						{
+							"key": "start",
+							"value": "2019-02-24 11:05:03.918103"
+						},
+						{
+							"key": "end",
+							"value": "2019-02-24 11:09:06.095966"
+						},
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "баланс кошелька по uuid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8080/wallet/balance/12345",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8080",
+					"path": [
+						"wallet",
+						"balance",
+						"12345"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "регистрация нового кошелька",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "last_name",
+							"value": "Иванов",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "fathers_name",
+							"value": "Иванович",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "birthday",
+							"value": "01.01.2010",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "email",
+							"value": "ivan@mail.ru",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "phone",
+							"value": "+791234567890",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "type_account",
+							"value": "Физическое лицо",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8080/wallet/create",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8080",
+					"path": [
+						"wallet",
+						"create"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "удаление кошелька",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8080/wallet/delete",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8080",
+					"path": [
+						"wallet",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "пополнение кошелька",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "money",
+							"value": "1.2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8080/wallet/input",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8080",
+					"path": [
+						"wallet",
+						"input"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "вывод с кошелька",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "money",
+							"value": "10",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8080/wallet/output",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8080",
+					"path": [
+						"wallet",
+						"output"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "перевод с кошелька",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "from",
+							"value": "743db0f9-7108-4dfe-a65c-2ce6beb9b124",
+							"type": "text"
+						},
+						{
+							"key": "to",
+							"value": "6128bdf6-e5e0-46d4-98f2-dbd2cc923318",
+							"type": "text"
+						},
+						{
+							"key": "money",
+							"value": "5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://0.0.0.0:8080/wallet/transfer",
+					"protocol": "http",
+					"host": [
+						"0",
+						"0",
+						"0",
+						"0"
+					],
+					"port": "8080",
+					"path": [
+						"wallet",
+						"transfer"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
