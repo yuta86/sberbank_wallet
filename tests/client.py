@@ -1,4 +1,5 @@
-import datetime
+""" примитивный клиент """
+
 from pprint import pprint
 
 import aiohttp
@@ -9,7 +10,7 @@ USER_TYPES = {'individual': 'Физическое лицо', 'organization': 'Ю
 
 async def fetch(session, url, params=None):
     """
-
+    Функция GET
     :param session:
     :param url:
     :param params:
@@ -23,19 +24,22 @@ async def fetch(session, url, params=None):
 
 async def post(session, url, data):
     """
-
+    Функция POST
     :param session:
     :param url:
     :param data:
     :return:
     """
     print('===================================')
-    # session.post('http://httpbin.org/post', data=b'data')
     async with session.post(url, data=data) as response:
         return await response.text()
 
 
 async def main():
+    """
+    ТОЧКА ВХОДА КЛИЕНТА
+    :return:
+    """
     async with aiohttp.ClientSession() as session:
         html = await fetch(session, 'http://0.0.0.0:8080')
         print(html)
@@ -47,8 +51,8 @@ async def main():
         # print(html)
         #
         #
-        html = await fetch(session, 'http://0.0.0.0:8080/user/info/1')
-        pprint(html)
+        # html = await fetch(session, 'http://0.0.0.0:8080/user/info/1')
+        # pprint(html)
         # delete_user = {'id': '3'}
         # html = await post(session, 'http://0.0.0.0:8080/user/delete', delete_user)
         # print(html)
@@ -67,20 +71,15 @@ async def main():
         # html = await fetch(session, 'http://0.0.0.0:8080/logs/errorlogs', params)
         # pprint(html)
 
-        start = '2019-02-24 11:05:03.918103'
-        end = '2019-02-24 11:09:06.095966'
-        params = {'start': start, 'end': end, 'id': 1}
-
-
-        html = await fetch(session, 'http://0.0.0.0:8080/report/history', params)
-        pprint(html)
-
-
-
-
+        # start = '2019-02-24 11:05:03.918103'
+        # end = '2019-02-24 11:09:06.095966'
+        # params = {'start': start, 'end': end, 'id': 1}
+        #
+        # html = await fetch(session, 'http://0.0.0.0:8080/report/history', params)
+        # pprint(html)
 
         # registration_user = {'name': 'name_user', 'last_name': 'last_name', 'fathers_name': 'fathers_name',
-        #                      'birthday': 'birthday', 'email': 'email', 'phone': 'phone', 'type_account': USER_TYPES['individual']}
+        #        'birthday': 'birthday', 'email': 'email', 'phone': 'phone', 'type_account': USER_TYPES['individual']}
         #
         #
         # html = await post(session, 'http://0.0.0.0:8080/user/registration', registration_user)
