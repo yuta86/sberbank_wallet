@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>1c8e8e36-a17f-4caa-84fc-40f85a148200</OriginalElement>
+  <nodes>
+    <node x="282.0" y="202.0">1c8e8e36-a17f-4caa-84fc-40f85a148200.TABLE:wallet.public.users</node>
+    <node x="568.0" y="0.0">1c8e8e36-a17f-4caa-84fc-40f85a148200.TABLE:wallet.public.apilog</node>
+    <node x="-3.0907780979827066" y="276.78674351585016">1c8e8e36-a17f-4caa-84fc-40f85a148200.TABLE:wallet.public.journal</node>
+    <node x="307.0" y="495.0">1c8e8e36-a17f-4caa-84fc-40f85a148200.TABLE:wallet.public.alembic_version</node>
+    <node x="0.0" y="495.0">1c8e8e36-a17f-4caa-84fc-40f85a148200.TABLE:wallet.public.errorlog</node>
+    <node x="103.5" y="0.0">1c8e8e36-a17f-4caa-84fc-40f85a148200.TABLE:wallet.public.wallet</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="1c8e8e36-a17f-4caa-84fc-40f85a148200.TABLE:wallet.public.users" target="1c8e8e36-a17f-4caa-84fc-40f85a148200.TABLE:wallet.public.wallet">
+      <point x="0.0" y="-124.0" />
+      <point x="402.5" y="177.0" />
+      <point x="258.5" y="177.0" />
+      <point x="62.0" y="76.0" />
+    </edge>
+    <edge source="1c8e8e36-a17f-4caa-84fc-40f85a148200.TABLE:wallet.public.journal" target="1c8e8e36-a17f-4caa-84fc-40f85a148200.TABLE:wallet.public.wallet">
+      <point x="-65.5" y="-76.0" />
+      <point x="65.5" y="177.0" />
+      <point x="134.5" y="177.0" />
+      <point x="-62.0" y="76.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.9706293706293707" x="396.19020172910655" y="357.07492795389044" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Key columns</Category>
+    <Category>Columns</Category>
+  </Categories>
+</Diagram>
+
