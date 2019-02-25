@@ -256,12 +256,12 @@ class DBHelper:
         else:
             return 'Отсутствует кошелёк с данным uuid'
 
-    def create_wallet(self, uuid, created, id, is_active=True, balance=current_config.START_BALANCE):
+    def create_wallet(self, uuid, created, user_id, is_active=True, balance=current_config.START_BALANCE):
         """
        Регистрация (создание) нового кошелька
        :param uuid: UUID кошелька
        :param created: Дата создания
-       :param id: Идентификатор пользователя
+       :param user_id: Идентификатор пользователя
        :param is_active: Активность
        :param balance: Баланс (при регистрации равен START_BALANCE)
        :return: Результат выполнения функции (Строка)
@@ -273,8 +273,8 @@ class DBHelper:
             self.session.flush()
             self.session.commit()
 
-            user = self.session.query(Users).filter(Users.id == id).first()
-            user.wallet_id = id
+            user = self.session.query(Users).filter(Users.id == user_id).first()
+            user.wallet_id = wallet.id
 
             self.session.flush()
             self.session.commit()
@@ -300,16 +300,16 @@ class DBHelper:
         except Exception as e:
             return f'ERROR DELETE: {e}'
 
-    def input_money_by_id(self, id, amount):
+    def input_money_by_id(self, wallet_id, amount):
         """
         Пополнение кошелька по id
-        :param id: Идентификатор кошелька
+        :param wallet_id: Идентификатор кошелька
         :param amount: Сумма пополнения
         :return: Результат выполнения функции (Строка)
         """
 
         try:
-            wallet = self.session.query(Wallet).get(id)
+            wallet = self.session.query(Wallet).get(wallet_id)
             # можно внести лишь ту часть которая до LIMIT
             # if  wallet.balance + amount >  Decimal(current_config.LIMIT):
             #     ostatok = abs(Decimal(current_config.LIMIT) - wallet.balance + amount)

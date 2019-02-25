@@ -76,9 +76,9 @@ async def registration(request):  # POST /user/registration
         remote = str(request.remote)
 
         result = dbh.user_registration(name=request_data['name'], last_name=request_data['last_name'],
-                              fathers_name=request_data['fathers_name'],
-                              birthday=request_data['birthday'], email=request_data['email'],
-                              phone=request_data['phone'], type_account=request_data['type_account'])
+                                       fathers_name=request_data['fathers_name'],
+                                       birthday=request_data['birthday'], email=request_data['email'],
+                                       phone=request_data['phone'], type_account=request_data['type_account'])
 
         finished = datetime.datetime.now()
 

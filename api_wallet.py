@@ -44,14 +44,14 @@ async def create(request):  # POST /wallet/create
 
     try:
         request_data = await request.post()
-        id = int(request_data['id'])
+        user_id = int(request_data['id'])
         created = datetime.datetime.now()
         request_url = str(request.url)
         request_method = str(request.method)
         remote = str(request.remote)
         wallet_uuid = uuid.uuid4()
 
-        result = dbh.create_wallet(uuid=wallet_uuid, created=created, id=id)
+        result = dbh.create_wallet(uuid=wallet_uuid, created=created, user_id=user_id)
 
         finished = datetime.datetime.now()
 
@@ -100,15 +100,14 @@ async def input(request):  # POST /wallet/input
     try:
         request_data = await request.post()
 
-        id = request_data['id']
+        wallet_id = request_data['id']
         money = Decimal(request_data['money'])
-        print(f'money = {money}')
         created = datetime.datetime.now()
         request_url = str(request.url)
         request_method = str(request.method)
         remote = str(request.remote)
 
-        result = str(dbh.input_money_by_id(id, money))
+        result = str(dbh.input_money_by_id(wallet_id=wallet_id, amount=money))
         finished = datetime.datetime.now()
 
         dbh.add_log(request_url, request_method, str(request_data), remote, result, created, finished)
