@@ -72,5 +72,3 @@ if __name__ == '__main__':
                     ])
 
     web.run_app(app)
-
-# клиент кстати может быть использован для тестов  https://aiohttp.readthedocs.io/en/stable/testing.html

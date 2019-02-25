@@ -1,7 +1,5 @@
 import aiohttp
 
-
-
 TEST_SERVER_URL = 'http://0.0.0.0:8080'
 
 MAIN_URL_1 = f'{TEST_SERVER_URL}'  # стартовая страница
@@ -177,15 +175,18 @@ async def test_wallet_transfer():
             assert response.status == 200
 
 
-# кроме этого можно добавить несколько тестов на текст ответа, на проверку наличия функций в модулях, на наличие самих модулей,
-# на проверку типа возвращаемого значения, проверку суммы и разности переводов, выводов, пополнений
-
+# кроме этого можно добавить несколько тестов на текст ответа, на проверку наличия функций в модулях, на наличие
+# самих модулей, на проверку типа возвращаемого значения, проверку суммы и разности переводов, выводов, пополнений
+# дополнительно по тестам можно изучить https://aiohttp.readthedocs.io/en/stable/testing.html
 import api_wallet
+
+
 def test_import_api_wallet():
     """
     Проверка наличия функции balance в модуле api_wallet
     """
     assert hasattr(api_wallet, 'balance')
+
 
 async def test_user_info__return_map():
     """
@@ -193,4 +194,4 @@ async def test_user_info__return_map():
     """
     async with aiohttp.ClientSession() as session:
         async with session.get(USER_INFO_URL) as response:
-           assert isinstance(await response.text(), str)
+            assert isinstance(await response.text(), str)
