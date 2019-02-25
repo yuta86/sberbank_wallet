@@ -22,8 +22,3 @@
 
 Все вышеперечисленные функции были реализованы
 
-
-_`Для применения миграции`_
-alembic revision --autogenerate -m "1"
-alembic upgrade +1
-
