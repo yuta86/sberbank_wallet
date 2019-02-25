@@ -127,6 +127,6 @@ if __name__ == '__main__':
 # удаление кошелька
 # https://aiohttp.readthedocs.io/en/stable/
 # клиент кстати может быть использован для тестов  https://aiohttp.readthedocs.io/en/stable/testing.html
-#   web.get('info/{name}', handle),
+
 # схема БД
 # описать тестирование в postman

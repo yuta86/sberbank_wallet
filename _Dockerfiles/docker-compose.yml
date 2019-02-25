@@ -1,0 +1,47 @@
+version: '3'
+
+services:
+  postgres_wallet:
+    container_name: postgres_wallet
+    image: postgres:10
+    env_file: .env
+    ports:
+      - "7433:5432"
+    volumes:
+      - pgdata:/PG_DATA
+    restart: unless-stopped
+    logging:
+      driver: syslog
+      options:
+        tag: wallet-db
+
+  sberbank_wallet:
+    container_name: sberbank_wallet
+    build: ./backend
+    restart: always
+    env_file: .env
+    command: python server.py
+    ports:
+    - "8000:8000"
+    volumes:
+    - ./api_data:/docker_api
+    depends_on:
+    - postgres_evner
+    logging:
+      driver: syslog
+      options:
+        tag: django_evners
+# пригодиться для кеширования запросов и хранения сессии
+  redis_wallet:
+      image: "redis:latest"
+      container_name: redis_wallet
+      restart: unless-stopped
+      ports:
+        - "6379:6379"
+      volumes:
+       - "./redis.conf:/etc/redis.conf"
+      command: "redis-server /etc/redis.conf"
+
+volumes:
+    api_data:
+    pgdata:
