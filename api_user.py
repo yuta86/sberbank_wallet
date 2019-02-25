@@ -7,27 +7,6 @@ from aiohttp import web
 from db_helper import dbh
 
 
-# created = datetime.datetime.now()
-#
-# try:
-#     name = request.match_info.get('name', "Анонимный пользователь")
-#     pprint(request)
-#     request_url = str(request.url)
-#     request_method = str(request.method)
-#     request_data = str(request.query_string)
-#     remote = str(request.remote)
-#
-#     finished = datetime.datetime.now()
-#     result = "Добро пожаловать, " + name
-#     dbh.add_log(request_url, request_method, request_data, remote, result, created, finished)
-# except Exception as error:
-#     trace = traceback.format_exc(chain=True)
-#     dbh.add_error(request_url, request_method, request_data, str(error), str(trace), created)
-#     return web.Response(text=str(error))
-#
-# return web.Response(text=result)
-
-
 async def info(request):  # GET /user/info/{id}
     """
     Получение информации о пользователе
@@ -52,7 +31,6 @@ async def info(request):  # GET /user/info/{id}
         dbh.add_error(request_url, request_method, request_data, str(error), str(trace), created)
         return web.Response(text=str(error))
 
-    # return web.Response(text=result)
     return web.json_response(result)
 
 

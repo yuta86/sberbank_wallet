@@ -6,7 +6,8 @@ import traceback
 from db_helper import dbh
 from aiohttp import web
 
-async def apilogs(request): # GET /logs/apilogs
+
+async def apilogs(request):  # GET /logs/apilogs
     """
     Получение информации о логах
     :param request:
@@ -36,8 +37,8 @@ async def apilogs(request): # GET /logs/apilogs
         dbh.add_error(request_url, request_method, request_data, str(error), str(trace), created)
         return web.Response(text=str(error))
 
-    # return web.Response(text=result)
     return web.json_response(result)
+
 
 async def errorlogs(request):  # GET '/logs/errorlogs
     """
@@ -68,5 +69,4 @@ async def errorlogs(request):  # GET '/logs/errorlogs
         dbh.add_error(request_url, request_method, request_data, str(error), str(trace), created)
         return web.Response(text=str(error))
 
-    # return web.Response(text=result)
     return web.json_response(result)

@@ -8,6 +8,7 @@ from aiohttp import web
 import uuid
 from decimal import Decimal
 
+
 async def balance(request):  # GET /wallet/balance/{uuid}
     """
     Проверка баланса кошелька (МОЖНО ПОДУМАТЬ ОБ УСЛОЖНЕНИИ ЛОГИКИ ПРОВЕРКИ)
@@ -34,11 +35,7 @@ async def balance(request):  # GET /wallet/balance/{uuid}
     return web.Response(text=str(result))
 
 
-
-
-
-
-async def create(request):   # POST /wallet/create
+async def create(request):  # POST /wallet/create
     """
     Создание кошелька
     :param request:
@@ -65,9 +62,6 @@ async def create(request):   # POST /wallet/create
         return web.Response(text=str(error))
 
     return web.Response(text=result)
-
-
-
 
 
 async def delete(request):  # POST /wallet/delete
@@ -155,8 +149,7 @@ async def output(request):  # POST /wallet/output
     return web.Response(text=result)
 
 
-
-async def transfer(request):   # POST /wallet/transfer
+async def transfer(request):  # POST /wallet/transfer
     """
     Перевод средств
     :param request:
@@ -185,4 +178,3 @@ async def transfer(request):   # POST /wallet/transfer
         return web.Response(text=str(error))
 
     return web.Response(text=result)
-
